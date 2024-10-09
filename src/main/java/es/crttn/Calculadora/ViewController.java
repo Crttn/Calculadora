@@ -16,71 +16,12 @@ import java.util.ResourceBundle;
 
 public class ViewController implements Initializable {
 
-
     private double num1 = 0;
     private double num2 = 0;
-    private String operator = "";  // Para almacenar el operador
-    private boolean startNewInput = true;  // Para saber cuándo empezar a escribir un nuevo número
-
+    private String operator = "";
+    private boolean startNewInput = true;
 
     public static Stage primaryStage;
-
-    @FXML
-    private Button button0;
-
-    @FXML
-    private Button button1;
-
-    @FXML
-    private Button button2;
-
-    @FXML
-    private Button button3;
-
-    @FXML
-    private Button button4;
-
-    @FXML
-    private Button button5;
-
-    @FXML
-    private Button button6;
-
-    @FXML
-    private Button button7;
-
-    @FXML
-    private Button button8;
-
-    @FXML
-    private Button button9;
-
-    @FXML
-    private Button buttonAdd;
-
-    @FXML
-    private Button buttonC;
-
-    @FXML
-    private Button buttonCE;
-
-    @FXML
-    private Button buttonDiv;
-
-    @FXML
-    private Button buttonEqual;
-
-    @FXML
-    private Button buttonMinus;
-
-    @FXML
-    private Button buttonMulti;
-
-    @FXML
-    private Button buttonPoint;
-
-    @FXML
-    private GridPane buttonsGridPane;
 
     @FXML
     private TextField resultTextField;
@@ -88,6 +29,9 @@ public class ViewController implements Initializable {
     @FXML
     private BorderPane root;
 
+    public BorderPane getRoot() {
+        return root;
+    }
 
     public ViewController() {
         try {
@@ -114,15 +58,29 @@ public class ViewController implements Initializable {
         }
     }
 
-    // Establecer el operador y guardar el valor actual
     private void setOperator(String op) {
         operator = op;
         num1 = Double.parseDouble(resultTextField.getText());
-        startNewInput = true;  // Preparar para el próximo número
+        startNewInput = true;
     }
 
-    public BorderPane getRoot() {
-        return root;
+    private double calculateResult() {
+        switch (operator) {
+            case "+":
+                return num1 + num2;
+            case "-":
+                return num1 - num2;
+            case "*":
+                return num1 * num2;
+            case "/":
+                if (num2 != 0) {
+                    return num1 / num2;
+                } else {
+                    return 0;  // Evitar división por cero
+                }
+            default:
+                return 0;
+        }
     }
 
     @FXML
@@ -176,23 +134,15 @@ public class ViewController implements Initializable {
     }
 
     @FXML
+    void onButtonClickPoint(ActionEvent event) {
+        if (!resultTextField.getText().contains(".")) {
+            resultTextField.setText(resultTextField.getText() + ".");
+        }
+    }
+
+    @FXML
     void onButtonClickAdd(ActionEvent event) {
         setOperator("+");
-    }
-
-    @FXML
-    void onButtonClickC(ActionEvent event) {
-        setOperator("C");
-    }
-
-    @FXML
-    void onButtonClickDiv(ActionEvent event) {
-        setOperator("/");
-    }
-
-    @FXML
-    void onButtonClickEqual(ActionEvent event) {
-        setOperator("=");
     }
 
     @FXML
@@ -206,11 +156,26 @@ public class ViewController implements Initializable {
     }
 
     @FXML
-    void onButtonClickPoint(ActionEvent event) {
-        // Agregar un punto decimal si no existe ya en el número actual
-        if (!resultTextField.getText().contains(".")) {
-            resultTextField.setText(resultTextField.getText() + ".");
-        }
+    void onButtonClickDiv(ActionEvent event) {
+        setOperator("/");
     }
+
+    @FXML
+    void onButtonClickEqual(ActionEvent event) {
+        num2 = Double.parseDouble(resultTextField.getText());
+        double result = calculateResult();
+        resultTextField.setText(String.valueOf(result));
+        startNewInput = true;
+    }
+
+    @FXML
+    void onButtonClickC(ActionEvent event) {
+        resultTextField.setText("0");
+        num1 = 0;
+        num2 = 0;
+        operator = "";
+        startNewInput = true;
+    }
+
 
 }
