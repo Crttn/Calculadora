@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane fx:id="root" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/23">
+<BorderPane fx:id="root" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1">
    <center>
       <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" spacing="5.0">
          <children>
@@ -59,7 +59,7 @@
                   <Button fx:id="buttonMulti" alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onButtonClickMulti" prefHeight="50.0" prefWidth="110.0" text="*" GridPane.columnIndex="3" GridPane.rowIndex="1" />
                   <Button fx:id="buttonDiv" alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onButtonClickDiv" prefHeight="50.0" prefWidth="110.0" text="/" GridPane.columnIndex="4" GridPane.rowIndex="1" />
                   <Button fx:id="button2" alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onButtonClick2" prefHeight="50.0" prefWidth="110.0" text="2" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                  <Button fx:id="buttonEqual" alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" mnemonicParsing="false" onAction="#onButtonClickEqual" prefWidth="110.0" text="=" GridPane.columnIndex="4" GridPane.rowIndex="2" GridPane.rowSpan="2" GridPane.vgrow="ALWAYS" />
+                  <Button fx:id="buttonEqual" alignment="CENTER" contentDisplay="CENTER" defaultButton="true" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" mnemonicParsing="false" onAction="#onButtonClickEqual" prefWidth="110.0" text="=" GridPane.columnIndex="4" GridPane.rowIndex="2" GridPane.rowSpan="2" GridPane.vgrow="ALWAYS" />
                   <Button fx:id="buttonAdd" alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onButtonClickAdd" prefHeight="50.0" prefWidth="110.0" text="+" GridPane.columnIndex="3" GridPane.rowIndex="3" />
                   <Button fx:id="button0" alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onButtonClick0" prefHeight="50.0" prefWidth="110.0" text="0" GridPane.columnSpan="2" GridPane.rowIndex="3" />
                   <Button fx:id="button1" alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onButtonClick1" prefHeight="50.0" prefWidth="110.0" text="1" GridPane.rowIndex="2" />
